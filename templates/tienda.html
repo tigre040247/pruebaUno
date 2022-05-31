@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,13 +37,12 @@
         }
     </style>
 
-
 </head>
-
 <body>
-    <h1>CLIENTES </h1>
+    
+    <h1> TIENDA </h1>
 
-    <!--Formulario para el ingreso de nuevos clientes tomado de Bootstrap-->
+    <!--Formulario para el ingreso del nombre de las tiendas tomado de Bootstrap-->
     <form method="post" action="{{url_for('enviar')}}">
         <div class="form-group">
             <label>Nombre</label>
@@ -56,12 +54,17 @@
             <input type="text" class="form-control" placeholder="Ingrese su número de telefono " name="telefono">
         </div>
 
+        <div class="form-group">
+            <label>Gerente</label>
+            <input type="text" class="form-control" placeholder="Ingrese el nombre del gerente " name="gerente">
+        </div>
+
            
         <div class="form-group">
-            <label> ¿Tiene Covid?</label>
+            <label> ESTADO </label>
             <select class="form-select" size="3" aria-label="size 3 select example" name="covid">
-                <option value="Si">SI</option>
-                <option value="No">NO</option>
+                <option value="NORMAL">NORMAL</option>
+                <option value="CASO">CASO</option>
             </select>
         </div> <br>
         <div class="d-grid gap-2 col-6 mx-auto">
@@ -69,15 +72,16 @@
         </div>
     </form><br>
 
-    <h1>Lista de Clientes</h1>
+    <h1>Lista de las tiendas </h1>
 
-    <!--Controlador 1.1 Tabla para mostrar los clientes -->
+    <!--Controlador 1.1 Tabla para mostrar tiendas -->
     <table class="table table-dark table-striped">
         <thead>
             <tr>
-                <th scope="col">Nombre del cliente</th>
+                <th scope="col">Nombre de la tienda</th>
                 <th scope="col">Número de telefono</th>
-                <th scope="col">Covid</th>
+                <th scope="col">Nombre del Gerente</th>
+                <th scope="col">Estado</th>
             </tr>
 
         </thead>
@@ -85,11 +89,13 @@
         <tbody>
 
             <tr>
-                {% for tarea in listaClientes %}
+                {% for tarea in listaTiendas %}
                 <!--Mostrar cliente-->
                 <th>{{tarea.nombre}}</th>
                 <!--Mostrar numero de telefono-->
                 <th>{{tarea.telefono}}</th>
+                <!--Mostrar nombre de gerente-->
+                <th>{{tarea.gerente}}</th>
                 <!--Mostrar si dispone covid-->
                 <th>{{tarea.covid}}</th>
             </tr>
@@ -98,26 +104,7 @@
 
     </table>
 
-    <!--Funcion controlador para guardar los clientes  *.pickle-->
-    <form action="{{url_for('guardar')}}" method="post" class="card-body">
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-success">Guardar Clientes</button>
-        </div>
-    </form>
 
-    <!--Funcion controlador para borrar clientes-->
-    <form action="{{url_for('borrar')}}" method="post" class="card-body">
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-danger mb-2">Borrar Clientes</button>
-        </div>
-    </form>
-
-
+    
 </body>
-
-<footer>
-    Tnte. Cristian Bonilla <br>
-   
-</footer>
-
 </html>
