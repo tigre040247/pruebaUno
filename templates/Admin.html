@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <title>Lista de tareas</title>
+
+    <style type="text/css">
+        /*Estilos CSS propios*/
+        body {
+            background: url("https://wallpx.com/image/2021/05/minimalism-paper-airplane.jpg");
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            font-family: titulares;
+            font-size: 13px;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        label {
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h1>Lista de Clientes</h1>
+
+    <!--Controlador 1.1 Tabla para mostrar los clientes -->
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre del cliente</th>
+                <th scope="col">Número de telefono</th>
+                <th scope="col">Covid</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                {% for tarea in listaClientes %}
+                <!--Mostrar cliente-->
+                <th>{{tarea.nombre}}</th>
+                <!--Mostrar numero de telefono-->
+                <th>{{tarea.telefono}}</th>
+                <!--Mostrar si dispone covid-->
+                <th>{{tarea.covid}}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+
+    <h1>Lista de las tiendas </h1>
+
+    <!--Controlador 1.1 Tabla para mostrar tiendas -->
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre de la tienda</th>
+                <th scope="col">Número de telefono</th>
+                <th scope="col">Nombre del Gerente</th>
+                <th scope="col">Estado</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                {% for tarea in listaTiendas %}
+                <!--Mostrar cliente-->
+                <th>{{tarea.nombre}}</th>
+                <!--Mostrar numero de telefono-->
+                <th>{{tarea.telefono}}</th>
+                <!--Mostrar nombre de gerente-->
+                <th>{{tarea.gerente}}</th>
+                <!--Mostrar si dispone covid-->
+                <th>{{tarea.covid}}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+
+    
+</body>
+</html>

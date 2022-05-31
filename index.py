@@ -27,6 +27,7 @@ def enviar():
         nombre = request.form['nombre']
         telefono = request.form['telefono']
         covid = request.form['covid']
+        gerente = request.form['gerente']
 
         # Funcion condicional para no registrar en caso de datos vacios
         if nombre == '' or telefono == '' or covid == '':
@@ -44,11 +45,6 @@ def enviar():
             else:
                 return redirect(url_for('home'))
 
-#ruta tienda
-@app.route('/tienda')
-#Llamar a index.html en la ruta principal
-def tienda():
-    return render_template('tienda.html')
 
 # 3. Funcion controlador para borrar la lista de tareas
 @app.route('/borrar', methods=['POST'])
@@ -94,6 +90,20 @@ def guardar():
             else:
                 return redirect(url_for('home'))
 
+
+
+#ruta tienda
+@app.route('/tienda')
+#Llamar a index.html en la ruta principal
+def tienda():
+    return render_template('tienda.html')
+
+
+#ruta admin
+@app.route('/admin')
+#Llamar a index.html en la ruta principal
+def admin():
+    return render_template('admin.html')
 
 # Metodo main del programa
 if __name__ == '__main__':
